@@ -1,5 +1,5 @@
 API:
-    token: a620b3079839a23495b71270bb7237742e5e758764688da991518093f8ed01ca
+    token: <replace-with-your-api-key>
 export_options:
     export_path: /app/csv/
     timezone: Europe/London
