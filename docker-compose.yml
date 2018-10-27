@@ -11,7 +11,7 @@ services:
       - PGID=1000
       - PUID=1000
     volumes:
-      - ./csvs:/app/csv
+      - csvs:/app/csv
   onedrive:
     container_name: OneDrive-Uploader
     image: eddible/rpi-onedrive
