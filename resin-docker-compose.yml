@@ -1,0 +1,28 @@
+version: '2'
+volumes:
+  config.yaml:
+  csvs:
+  onedrive-config:
+services:
+  edd-sc:
+    container_name: CSV-Exporter
+    image: eddible/rpi-exporter
+    restart: always
+    environment:
+      - PGID=1000
+      - PUID=1000
+    volumes:
+      - ./config.yaml:/app/config.yaml
+      - ./csvs:/app/csv
+  onedrive:
+    container_name: OneDrive-Uploader
+    image: eddible/rpi-onedrive
+    restart: always
+    environment:
+      - TZ=Europe/London
+      - PGID=1000
+      - PUID=1000
+    volumes:
+      - ./onedrive-config:/config
+      - ./csvs:/documents/csvs
+
