@@ -1,0 +1,11 @@
+API:
+    token: a620b3079839a23495b71270bb7237742e5e758764688da991518093f8ed01ca
+export_options:
+    export_path: /app/csv/
+    timezone: Europe/London
+    filename:
+    csv_options:
+        export_inactive_items: false
+    export_profiles:
+    sync_delay_in_seconds: 900
+    media_sync_offset_in_seconds:

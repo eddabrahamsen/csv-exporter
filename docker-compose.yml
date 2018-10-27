@@ -1,0 +1,37 @@
+version: '3'
+
+services:
+  edd-sc:
+    container_name: CSV-Exporter
+    image: eddible/rpi-exporter
+    restart: always
+    environment:
+      - PGID=1000
+      - PUID=1000
+    volumes:
+      - ~/safetyculture/config.yaml:/app/config.yaml
+      - ~/OneDrive/csvs:/app/csv
+  portainer:
+    container_name: Portainer
+    image: portainer/portainer
+    restart: always
+    ports:
+      - "9000:9000"
+    command: -H unix:///var/run/docker.sock
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - portainer_data:/data
+  onedrive:
+    container_name: OneDrive-Uploader
+    image: eddible/rpi-onedrive
+    restart: always
+    environment:
+      - TZ=Europe/London
+      - PGID=1000
+      - PUID=1000
+    volumes:
+      - ~/.config/pi-onedrive:/config
+      - ~/OneDrive/csvs:/documents/csvs
+volumes:
+  portainer_data:
+
