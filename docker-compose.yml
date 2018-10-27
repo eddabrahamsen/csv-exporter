@@ -1,6 +1,5 @@
 version: '2'
 volumes:
-  config.yaml:
   csvs:
   onedrive-config:
 services:
